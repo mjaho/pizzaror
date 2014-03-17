@@ -11,3 +11,28 @@
  *= require_self
  *= require_tree .
  */
+
+.leftnavi {
+    float: left;
+    width: 100px;
+    height: 1080px;
+}
+
+
+.content {
+    background-color: rgb(31, 145, 20);
+    padding: 20px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.pagecontent {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    margin-left: 65px;
+    padding: 10px;
+    padding-left: 5px;
+}

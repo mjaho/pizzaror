@@ -11,13 +11,13 @@
  t4 = Topping.create name:"Koskenkorva", amount:"3", unit:"dl"
  t5 = Topping.create name:"Liivate", amount:"20", unit:"g"
 
- u1 = User.create username:"admin", firstname:"Antti", lastname:"Admin", userlevel:2
- u2 = User.create username:"Luigi", firstname:"Luigi", lastname:"Pizzanen", userlevel:1
+ u1 = User.create username:"admin", firstname:"Antti", lastname:"Admin", userlevel:2, password:"test", password_confirmation:"test"
+ u2 = User.create username:"Luigi", firstname:"Luigi", lastname:"Pizzanen", userlevel:1, password:"test", password_confirmation:"test"
 
- p1 = Pizza.create name:"Darraspecial", user_id: u2.id
+ p1 = Pizza.create name:"Darraspecial", user_id: u2.id, description:"Makuhermoja hyväilevä kokemus"
  p1.toppings << t4
  p1.toppings << t5
 
- p2 = Pizza.create name:"Herrasväen herkku", user_id: u2.id
+ p2 = Pizza.create name:"Herrasväen herkku", user_id: u2.id, description:"Innovatiivinen yhdistelmä suomalaisia makuja"
  p2.toppings << t2
  p2.toppings << t3

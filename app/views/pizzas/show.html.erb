@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pizza.name %>
-</p>
+<h1><%= @pizza.name %></h1>
+
+<%= @pizza.description %><br/>
+
+<% @pizza.toppings.each do |t| %>
+<%= "#{t.name} #{t.amount} #{t.unit}"%><br/>
+<% end %>
 
 <p>
   <strong>User:</strong>

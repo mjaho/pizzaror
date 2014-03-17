@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pizzaror</title>
+  <title>Give me P I Z Z A</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="content">
+<div class="leftnavi">
+  <%= link_to 'pizzas', pizzas_path %><br/>
+  <%= link_to 'toppings', toppings_path %><br/>
+  <%= link_to 'users', users_path %><br/>
+  <% if not current_user.nil? %>
+      <p><%= current_user.username %> signed in</p><br/>
+      <%= link_to 'signout', signout_path, method: :delete %><br/>
+  <% end %>
+</div>
 
+<div class="pagecontent">
+<%= yield %>
+</div>
+</div>
 </body>
 </html>
