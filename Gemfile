@@ -15,6 +15,8 @@ group :production do
    gem 'rails_12factor' 
 end
 
+gem 'coveralls', require: false
+
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use SCSS for stylesheets
