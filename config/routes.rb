@@ -1,4 +1,14 @@
 Pizzaror::Application.routes.draw do
+  resources :favoritepizzas
+
+  resources :pizzatoppings
+
+  resources :pizzas
+
+  resources :toppings
+
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

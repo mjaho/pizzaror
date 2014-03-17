@@ -1,10 +1,11 @@
-language: ruby
-
-rvm:
- - 2.0.0
-
-script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: koqxGaBY9iZ+NaID2iyj6wsDfiG6KRk/astvsdauEfweKUG3O9hJnLB+8iiraSgZFqY6IbG0h8wyHf3uAPxAn9l5aDTsSylCDrYiOte9BO4FBStSSeQ0Z+Zp5T5YHl5wNae7SwRdgMMl0KVgbrpju8qrer+Peyd1ZsMH63Flk44=
+  app: evening-cove-5802
+  on:
+    repo: mjaho/pizzaror
+  run:
+    - "rake db:migrate"
+    - restart
+    - "rake cleanup"

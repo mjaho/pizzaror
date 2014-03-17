@@ -1,0 +1,25 @@
+<%= form_for(@pizzatopping) do |f| %>
+  <% if @pizzatopping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pizzatopping.errors.count, "error") %> prohibited this pizzatopping from being saved:</h2>
+
+      <ul>
+      <% @pizzatopping.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :topping_id %><br>
+    <%= f.number_field :topping_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pizza_id %><br>
+    <%= f.number_field :pizza_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

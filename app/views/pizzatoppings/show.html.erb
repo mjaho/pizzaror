@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topping:</strong>
+  <%= @pizzatopping.topping_id %>
+</p>
+
+<p>
+  <strong>Pizza:</strong>
+  <%= @pizzatopping.pizza_id %>
+</p>
+
+<%= link_to 'Edit', edit_pizzatopping_path(@pizzatopping) %> |
+<%= link_to 'Back', pizzatoppings_path %>

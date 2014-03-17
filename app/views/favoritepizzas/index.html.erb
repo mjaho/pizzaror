@@ -1,0 +1,29 @@
+<h1>Listing favoritepizzas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Pizza</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favoritepizzas.each do |favoritepizza| %>
+      <tr>
+        <td><%= favoritepizza.user_id %></td>
+        <td><%= favoritepizza.pizza_id %></td>
+        <td><%= link_to 'Show', favoritepizza %></td>
+        <td><%= link_to 'Edit', edit_favoritepizza_path(favoritepizza) %></td>
+        <td><%= link_to 'Destroy', favoritepizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Favoritepizza', new_favoritepizza_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @topping.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @topping.amount %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @topping.unit %>
+</p>
+
+<%= link_to 'Edit', edit_topping_path(@topping) %> |
+<%= link_to 'Back', toppings_path %>
