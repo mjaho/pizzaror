@@ -4,3 +4,19 @@
 
 <%= link_to 'Show', @pizza %> |
 <%= link_to 'Back', pizzas_path %>
+
+
+<script>
+    function toggle(pizza_id, topping_id) {
+        alert("haa!");
+        $.ajax({
+            type: "POST",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            url: "add_topping",
+            data: { enrollment_id: enrollment_id, project_id: project_id }
+        })
+                .done(function( msg ) {
+                    alert(msg)
+                });
+    };
+</script>

@@ -13,6 +13,8 @@ Pizzaror::Application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   resources :sessions, only: [:new, :create]
 
+  post 'add_topping', to: 'pizza#add_topping'
+
   root 'pizzas#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

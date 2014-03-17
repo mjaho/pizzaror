@@ -16,9 +16,24 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
+
+    <ul>
+      <% @toppings.each do |t| %>
+          <li>
+            <% if @pizza.toppings.include?(t) %>
+                <%= check_box_tag 'topping_ids[]', t.id, true -%>
+                <%= h t.name -%>
+            <% else %>
+                <%= check_box_tag 'topping_ids[]', t.id-%>
+                <%= h t.name -%>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+
   <div class="actions">
     <%= f.submit %>
   </div>

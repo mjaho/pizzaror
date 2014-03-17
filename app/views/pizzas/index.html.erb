@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>User</th>
+      <th>Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,11 +14,13 @@
   <tbody>
     <% @pizzas.each do |pizza| %>
       <tr>
-        <td><%= pizza.name %></td>
-        <td><%= pizza.user_id %></td>
-        <td><%= link_to 'Show', pizza %></td>
+        <td><%= pizza.user.username %></td>
+        <td><%= link_to pizza.name, pizza %></td>
+        <% if (current_user.id == pizza.user_id) or current_user.userlevel == 2 %>
         <td><%= link_to 'Edit', edit_pizza_path(pizza) %></td>
         <td><%= link_to 'Destroy', pizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td><%= pizza.description %></td>
       </tr>
     <% end %>
   </tbody>
