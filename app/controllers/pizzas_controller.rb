@@ -1,6 +1,15 @@
 class PizzasController < ApplicationController
   before_action :set_pizza, only: [:show, :edit, :update, :destroy]
 
+
+  before_action only: [:new, :create] do
+    to_root_if_not_logged_in
+  end
+
+  before_action only: [:destroy, :edit, :update] do
+    to_root_if_not_owner_or_admin(@pizza.user.id)
+  end
+
   # GET /pizzas
   # GET /pizzas.json
   def index
