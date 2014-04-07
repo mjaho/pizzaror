@@ -1,3 +1,11 @@
+language: ruby
+rvm:
+- 2.0.0
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
 deploy:
   provider: heroku
   api_key:
@@ -5,7 +13,3 @@ deploy:
   app: evening-cove-5802
   on:
     repo: mjaho/pizzaror
-  run:
-    - "rake db:migrate"
-    - restart
-    - "rake cleanup"

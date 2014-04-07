@@ -15,12 +15,13 @@
   <tbody>
     <% @toppings.each do |topping| %>
       <tr>
-        <td><%= topping.name %></td>
+        <td><%= link_to topping.name, topping %></td>
         <td><%= topping.amount %></td>
         <td><%= topping.unit %></td>
-        <td><%= link_to 'Show', topping %></td>
+        <% if current_user %>
         <td><%= link_to 'Edit', edit_topping_path(topping) %></td>
         <td><%= link_to 'Destroy', topping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,6 @@
 
 <br>
 
+<% if current_user %>
 <%= link_to 'New Topping', new_topping_path %>
+<% end %>

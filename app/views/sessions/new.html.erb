@@ -1,8 +1,21 @@
-<h1>Log in</h1>
+<h1>Sisäänkirjautuminen</h1>
 <p id="notice"><%= notice %></p>
 
 <%= form_tag sessions_path do %>
-    username <%= text_field_tag :username, params[:username] %><br/>
-    password <%= password_field_tag :password, params[:password] %><br/>
-    <%= submit_tag "Kirjaudu sisään" %>
+    <table>
+        <tr>
+             <td>Käyttäjätunnus</td>
+             <td><%= text_field_tag :username, params[:username] %></td>
+        </tr>
+        <tr>
+            <td>Salasana</td>
+            <td><%= password_field_tag :password, params[:password] %></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td><%= submit_tag "Kirjaudu sisään" %></td>
+        </tr>
+    </table>
 <% end %>
+<br/>
+<%= link_to 'Rekisteröidy käyttäjäksi', new_user_path %>

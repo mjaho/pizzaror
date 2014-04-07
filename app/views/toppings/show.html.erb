@@ -15,5 +15,7 @@
   <%= @topping.unit %>
 </p>
 
+<% if current_user %>
 <%= link_to 'Edit', edit_topping_path(@topping) %> |
+<% end %>
 <%= link_to 'Back', toppings_path %>
