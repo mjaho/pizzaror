@@ -16,7 +16,7 @@
       <tr>
         <td><%= pizza.user.username %></td>
         <td><%= link_to pizza.name, pizza %></td>
-        <% if (current_user.id == pizza.user_id) or current_user.userlevel == 2 %>
+        <% if not current_user.nil? and (current_user.id == pizza.user_id or current_user.userlevel == 2) %>
         <td><%= link_to 'Edit', edit_pizza_path(pizza) %></td>
         <td><%= link_to 'Destroy', pizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

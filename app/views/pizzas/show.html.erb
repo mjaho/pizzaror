@@ -9,9 +9,16 @@
 <% end %>
 
 <p>
-  <strong>User:</strong>
-  <%= @pizza.user_id %>
+  <strong>Laatija:</strong>
+  <%= @pizza.user.to_s %>
 </p>
+
+<% if current_user %>
+    <%= form_for(@favoritepizza) do |f| %>
+        <%= f.hidden_field :pizza_id, :value => @pizza.id %>
+        <%= f.submit %>
+    <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_pizza_path(@pizza) %> |
 <%= link_to 'Back', pizzas_path %>

@@ -14,7 +14,6 @@ class FavoritepizzasController < ApplicationController
 
   # GET /favoritepizzas/new
   def new
-    @favoritepizza = Favoritepizza.new
   end
 
   # GET /favoritepizzas/1/edit
@@ -26,14 +25,12 @@ class FavoritepizzasController < ApplicationController
   def create
     @favoritepizza = Favoritepizza.new(favoritepizza_params)
 
-    respond_to do |format|
-      if @favoritepizza.save
-        format.html { redirect_to @favoritepizza, notice: 'Favoritepizza was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @favoritepizza }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @favoritepizza.errors, status: :unprocessable_entity }
-      end
+    @favoritepizza = Favoritepizza.new params.require(:favoritepizza).permit(:pizza_id)
+    if @favoritepizza.save
+      current_user.favoritepizzas << @favoritepizza
+      redirect_to user_path current_user
+    else
+      render :back
     end
   end
 

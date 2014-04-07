@@ -19,6 +19,18 @@
   <strong>Userlevel:</strong>
   <%= @user.userlevel %>
 </p>
+  <strong>Suosikkipizzat:</strong>
+  <table>
+    <% @user.favoritepizzas.each do |p| %>
+        <tr>
+          <td><%= link_to p.pizza.name, p.pizza %></td>
+        </tr>
+    <% end %>
+
+  </table>
+<p>
+
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

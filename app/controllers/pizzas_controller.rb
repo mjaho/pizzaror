@@ -10,6 +10,10 @@ class PizzasController < ApplicationController
   # GET /pizzas/1
   # GET /pizzas/1.json
   def show
+    @favoritepizza = Favoritepizza.new
+    if not (current_user.nil?)
+      @favoritepizza.user = current_user
+    end
   end
 
   # GET /pizzas/new
